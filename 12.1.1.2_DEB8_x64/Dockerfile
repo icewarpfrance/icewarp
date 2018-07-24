@@ -95,7 +95,7 @@ RUN set -ex; \
         echo 'wait ${childPid}'                                    >> /usr/local/bin/icewarpForever.sh ; \
         echo "TRACE44 $?" ;\
         /bin/chmod 755 /usr/local/bin/icewarpForever.sh ; \
-        echo "TRACE45 $?" ;\
+        echo "TRACE45 $?"
 # IceWarp default folders :
 #    config                      : /opt/icewarp/config
 #    mails                       : /opt/icewarp/mail
