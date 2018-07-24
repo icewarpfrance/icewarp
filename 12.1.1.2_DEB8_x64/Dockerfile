@@ -24,11 +24,17 @@ RUN set -ex; \
         echo "TRACE8 $?" ;\
         /bin/sed -i 's?>/dev/tty??' /tmp/${file}/platform ;\
         echo "TRACE9 $?" ;\
+        /bin/sed -i 's/.*apt-get.*install.*/& ; echo "APTGETSTATUS $?"/' /tmp/${file}/platform ;\
+        echo "TRACE9.1 $?" ;\
+        /bin/sed -i 's/.*dpkg.*-i.*/& ; echo "DPKGSTATUS $?"/' /tmp/${file}/platform ;\
+        echo "TRACE9.2 $?" ;\
         /tmp/${file}/install.sh --AUTO --INSTALL-DIR /opt/icewarp --USER icewarp ;\
         echo "TRACE10 $?" ;\
         cd /opt/icewarp ;\
         echo "TRACE11 $?" ;\
         tar czf calendar.tgz calendar ;\
+        /bin/sed -i 's?>/dev/tty??' /tmp/${file}/platform ;\
+        echo "TRACE9 $?" ;\
         echo "TRACE12 $?" ;\
         tar czf spam.tgz spam ;\
         echo "TRACE13 $?" ;\
