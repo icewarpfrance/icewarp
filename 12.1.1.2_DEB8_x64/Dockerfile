@@ -28,7 +28,7 @@ RUN set -ex; \
         echo "TRACE9.1 $?" ;\
         /bin/sed -i 's/.*dpkg.*-i.*/& ; echo "DPKGSTATUS $?"/' /tmp/${file}/platform ;\
         echo "TRACE9.2 $?" ;\
-        /tmp/${file}/install.sh --AUTO --INSTALL-DIR /opt/icewarp --USER icewarp ;\
+        /tmp/${file}/install.sh --AUTO --INSTALL-DIR /opt/icewarp --USER root ;\
         echo "TRACE10 $?" ;\
         cd /opt/icewarp ;\
         echo "TRACE11 $?" ;\
