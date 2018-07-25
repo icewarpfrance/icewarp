@@ -74,7 +74,7 @@ RUN set -ex; \
         echo '   fi'                                                                                >> /usr/local/bin/icewarpForever.sh ; \
         echo '   if test -z "$LOCALIP"'                                                             >> /usr/local/bin/icewarpForever.sh ; \
         echo '   then'                                                                              >> /usr/local/bin/icewarpForever.sh ; \                                                                                
-        echo '      LOCALIP=`ip -o -4 a s eth0 | awk \'{sub(/\/.*/, "", $4);print $4}\'`'           >> /usr/local/bin/icewarpForever.sh ; \
+        echo '      LOCALIP=`ip -o -4 a s eth0 | awk '\''{sub(/\/.*/, "", $4);print $4}'\''`'       >> /usr/local/bin/icewarpForever.sh ; \
         echo '   fi'                                                                                >> /usr/local/bin/icewarpForever.sh ; \ 
         echo '   /opt/icewarp/tool.sh set system  c_system_services_sip_localaccesshost $LOCALIP'   >> /usr/local/bin/icewarpForever.sh ; \
         echo '   /opt/icewarp/tool.sh set system  c_system_services_sip_remoteaccesshost $PUBLICIP' >> /usr/local/bin/icewarpForever.sh ; \
