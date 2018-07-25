@@ -8,6 +8,7 @@ Bien sûr, le contailer que vous lancerez sera opérationnel en quelques minutes
 * au stockage
 * aux sauvegardes
 * à la supervision
+
 Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez pas à vous rapprocher de Darnis - IceWarp France (info@icewarp.fr).
 
 #### Avant premier lancement :<h4>
