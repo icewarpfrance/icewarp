@@ -1,6 +1,16 @@
 # Darnis - IceWarp France <h1>
 
-## Construction :<h2>
+IceWarp est le meilleur serveur de communication présent sur le marché.
+Cette image vous permet d'obtenir un serveur de communication (mail, chat, téléphonie, conférence, partage de documents, ...) opérationnel en moins de cinq minutes.
+Icewarp est un produit sous licence avec un excellent rapport qualité prix.
+Bien sûr, le contailer que vous lancerez sera opérationnel en quelques minutes, vous pouvez l'utiliser pour monter un POC ou pour le tester mais, si vous souhaitez passer en production, en fonction de vos besoins, vous devrez penser :
+* à la redondance
+* au stockage
+* aux sauvegardes
+* à la supervision
+Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez pas à vous rapprocher de Darnis - IceWarp France (info@icewarp.fr).
+
+### Construction :<h4>
     docker build /root/icewarp --tag icewarp:latest
 
 ### Avant premier lancement :<h3>
