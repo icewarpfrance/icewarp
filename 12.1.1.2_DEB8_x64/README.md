@@ -48,6 +48,6 @@ Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez 
     Si nécessaire, adaptez le Dockerfile puis
 `docker build . --tag icewarp:latest`
 
-###place 2
+###Place 2
 
 To be written
