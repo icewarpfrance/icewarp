@@ -51,6 +51,6 @@ Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez 
 `docker build . --tag icewarp:latest`
 
 ### Summary <h3>
-[French version](#French)
+[French version](##### Présentation)
 
 To be written
