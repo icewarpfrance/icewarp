@@ -1,6 +1,7 @@
 # vim:set ft=dockerfile:
 FROM debian:jessie
 MAINTAINER Darnis - IceWarp France version: 0.1
+ENV HOME=/root
 ARG url="http://www.icewarp.fr/download/executables/linux"
 ARG site="fr"
 ARG file="IceWarpServer-12.1.1.2_DEB8_x64"
