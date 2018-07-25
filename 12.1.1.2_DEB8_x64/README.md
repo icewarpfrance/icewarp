@@ -1,5 +1,5 @@
 # Serveur de Communication IceWarp
-[English version](#Summary)
+[English version](#Overview)
 
 
 ### Présentation
