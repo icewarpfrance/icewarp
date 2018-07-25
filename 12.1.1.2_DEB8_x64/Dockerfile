@@ -71,7 +71,7 @@ RUN set -ex; \
         echo '   if test -z "$PUBLICIP"'                                                            >> /usr/local/bin/icewarpForever.sh ; \
         echo '   then'                                                                              >> /usr/local/bin/icewarpForever.sh ; \
         echo '      PUBLICIP=`wget http://ipecho.net/plain -O - -q`'                                >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   fi'                                                                                >> /usr/local/bin/icewarpForever.sh ; \                                             >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   fi'                                                                                >> /usr/local/bin/icewarpForever.sh ; \
         echo '   if test -z "$LOCALIP"'                                                             >> /usr/local/bin/icewarpForever.sh ; \
         echo '   then'                                                                              >> /usr/local/bin/icewarpForever.sh ; \                                                                                
         echo '      LOCALIP=`ip -o -4 a s eth0 | awk \'{sub(/\/.*/, "", $4);print $4}\'`'           >> /usr/local/bin/icewarpForever.sh ; \
