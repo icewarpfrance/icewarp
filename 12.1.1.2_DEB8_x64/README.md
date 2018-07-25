@@ -1,9 +1,9 @@
 # Darnis - IceWarp France <h1>
-
+[here](#english)
 IceWarp est le meilleur serveur de communication présent sur le marché.
 Cette image vous permet d'obtenir un serveur de communication (mail, chat, téléphonie, conférence, partage de documents, ...) opérationnel en moins de cinq minutes.
-Icewarp est un produit sous licence avec un excellent rapport qualité prix.
-Bien sûr, le contailer que vous lancerez sera opérationnel en quelques minutes, vous pouvez l'utiliser pour monter un POC ou pour le tester mais, si vous souhaitez passer en production, en fonction de vos besoins, vous devrez penser :
+Icewarp est un produit sous licence avec un excellent rapport qualité prix. Cette image vous permet d'activer une licence pour 30 jours pour 200 utilisateurs en disposant de toutes les fonctionnalités.
+Bien sûr, le container que vous lancerez sera opérationnel en quelques minutes, vous pouvez l'utiliser pour monter un POC ou pour le tester mais, si vous souhaitez l'utiliser en production, en fonction de vos besoins, vous devrez penser :
 * à la redondance
 * au stockage
 * aux sauvegardes
@@ -46,3 +46,6 @@ Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez 
 #### Construction :<h4>
     Si nécessaire, adaptez le Dockerfile puis
 `docker build . --tag icewarp:latest`
+
+###english
+To be written
