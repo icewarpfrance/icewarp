@@ -10,9 +10,6 @@ Bien sûr, le contailer que vous lancerez sera opérationnel en quelques minutes
 * à la supervision
 Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez pas à vous rapprocher de Darnis - IceWarp France (info@icewarp.fr).
 
-#### Construction :<h4>
-    docker build /root/icewarp --tag icewarp:latest
-
 #### Avant premier lancement :<h4>
     mkdir /data/config /data/mail /data/logs /data/temp /data/spam /data/calendar
     chmod a+rwx /data/config /data/mail /data/logs /data/temp
@@ -35,7 +32,11 @@ Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez 
 #### Entrer en bash dans le container :<h4>
     docker exec -it container0_icewarp bash
 
-#### Arret et redemarrage de l'instance :<h{>
+#### Arret et redemarrage de l'instance :<h4>
     docker stop -t 120 container0_icewarp
       (laisser 120s ou plus pour arrêter correctement les services IceWarp)
     docker restart container0_icewarp
+
+#### Construction :<h4>
+    Si nécessaire, adaptez le Dockerfile
+    docker build . --tag icewarp:latest
