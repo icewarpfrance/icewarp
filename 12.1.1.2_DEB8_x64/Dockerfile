@@ -29,7 +29,7 @@ FROM debian:jessie
 MAINTAINER Darnis - IceWarp France version: 0.1
 ARG url="http://www.icewarp.fr/download/executables/linux"
 ARG site="fr"
-ARG file="IceWarpServer-12.0.2.1_DEB8_x64"
+ARG file="IceWarpServer-12.1.1.2_DEB8_x64"
 ARG fileToDownload="${url}/${file}.${site}.tar.gz"
 RUN set -ex; \
         export DEBIAN_FRONTEND=noninteractive ; \
@@ -46,36 +46,47 @@ RUN set -ex; \
         tar czf calendar.tgz calendar ;\
         tar czf spam.tgz spam ;\
         tar czf config.tgz config ;\
-        echo '#!/bin/bash'                                          > /usr/local/bin/icewarpForever.sh ; \
-        echo 'set -e'                                              >> /usr/local/bin/icewarpForever.sh ; \
-        echo 'stopIceWarpService()'                                >> /usr/local/bin/icewarpForever.sh ; \
-        echo '{'                                                   >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   /usr/sbin/service icewarp stop'                   >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   exitStatus=$?'                                    >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   /bin/kill -TERM "${childPid}" 2>/dev/null'        >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   exit $exitStatus'                                 >> /usr/local/bin/icewarpForever.sh ; \
-        echo '}'                                                   >> /usr/local/bin/icewarpForever.sh ; \
-        echo 'if test -f /opt/icewarp/calendar.tgz'                >> /usr/local/bin/icewarpForever.sh ; \
-        echo 'then'                                                >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   /bin/chown icewarp:icewarp /opt/icewarp/config'   >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   /bin/chown icewarp:icewarp /opt/icewarp/mail'     >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   /bin/chown icewarp:icewarp /opt/icewarp/logs'     >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   /bin/chown icewarp:icewarp /opt/icewarp/temp'     >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   /bin/chown icewarp:icewarp /opt/icewarp/spam'     >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   /bin/chown icewarp:icewarp /opt/icewarp/calendar' >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   cd /opt/icewarp'                                  >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   tar xzf calendar.tgz calendar/'                   >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   tar xzf spam.tgz     spam/'                       >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   tar xzf config.tgz   config/'                     >> /usr/local/bin/icewarpForever.sh ; \
-        echo '   rm calendar.tgz spam.tgz config.tgz'              >> /usr/local/bin/icewarpForever.sh ; \
-        echo 'fi'                                                  >> /usr/local/bin/icewarpForever.sh ; \
-        echo '/usr/sbin/service icewarp start'                     >> /usr/local/bin/icewarpForever.sh ; \
-        echo 'trap stopIceWarpService TERM'                        >> /usr/local/bin/icewarpForever.sh ; \
-        echo 'sleep infinity &'                                    >> /usr/local/bin/icewarpForever.sh ; \
-        echo 'childPid=$!'                                         >> /usr/local/bin/icewarpForever.sh ; \
-        echo 'wait ${childPid}'                                    >> /usr/local/bin/icewarpForever.sh ; \
-        echo 'trap - TERM'                                         >> /usr/local/bin/icewarpForever.sh ; \
-        echo 'wait ${childPid}'                                    >> /usr/local/bin/icewarpForever.sh ; \
+        echo '#!/bin/bash'                                                                           > /usr/local/bin/icewarpForever.sh ; \
+        echo 'set -e'                                                                               >> /usr/local/bin/icewarpForever.sh ; \
+        echo 'stopIceWarpService()'                                                                 >> /usr/local/bin/icewarpForever.sh ; \
+        echo '{'                                                                                    >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   /usr/sbin/service icewarp stop'                                                    >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   exitStatus=$?'                                                                     >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   /bin/kill -TERM "${childPid}" 2>/dev/null'                                         >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   exit $exitStatus'                                                                  >> /usr/local/bin/icewarpForever.sh ; \
+        echo '}'                                                                                    >> /usr/local/bin/icewarpForever.sh ; \
+        echo 'if test -f /opt/icewarp/calendar.tgz'                                                 >> /usr/local/bin/icewarpForever.sh ; \
+        echo 'then'                                                                                 >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   /bin/chown icewarp:icewarp /opt/icewarp/config'                                    >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   /bin/chown icewarp:icewarp /opt/icewarp/mail'                                      >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   /bin/chown icewarp:icewarp /opt/icewarp/logs'                                      >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   /bin/chown icewarp:icewarp /opt/icewarp/temp'                                      >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   /bin/chown icewarp:icewarp /opt/icewarp/spam'                                      >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   /bin/chown icewarp:icewarp /opt/icewarp/calendar'                                  >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   cd /opt/icewarp'                                                                   >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   tar xzf calendar.tgz calendar/'                                                    >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   tar xzf spam.tgz     spam/'                                                        >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   tar xzf config.tgz   config/'                                                      >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   rm calendar.tgz spam.tgz config.tgz'                                               >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   if test -z "$PUBLICIP"'                                                            >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   then'                                                                              >> /usr/local/bin/icewarpForever.sh ; \
+        echo '      PUBLICIP=`wget http://ipecho.net/plain -O - -q`'                                >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   fi'                                                                                >> /usr/local/bin/icewarpForever.sh ; \                                             >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   if test -z "$LOCALIP"'                                                             >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   then'                                                                              >> /usr/local/bin/icewarpForever.sh ; \                                                                                
+        echo '      LOCALIP=`ip -o -4 a s eth0 | awk \'{sub(/\/.*/, "", $4);print $4}\'`'           >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   fi'                                                                                >> /usr/local/bin/icewarpForever.sh ; 
+        echo '   /opt/icewarp/tool.sh set system  c_system_services_sip_localaccesshost $LOCALIP'   >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   /opt/icewarp/tool.sh set system  c_system_services_sip_remoteaccesshost $PUBLICIP' >> /usr/local/bin/icewarpForever.sh ; \
+        echo '   /opt/icewarp/tool.sh set system  c_mail_smtp_general_dnsserver $PUBLICIP'          >> /usr/local/bin/icewarpForever.sh ; \
+        echo 'fi'                                                                                   >> /usr/local/bin/icewarpForever.sh ; \
+        echo '/usr/sbin/service icewarp start'                                                      >> /usr/local/bin/icewarpForever.sh ; \
+        echo 'trap stopIceWarpService TERM'                                                         >> /usr/local/bin/icewarpForever.sh ; \
+        echo 'sleep infinity &'                                                                     >> /usr/local/bin/icewarpForever.sh ; \
+        echo 'childPid=$!'                                                                          >> /usr/local/bin/icewarpForever.sh ; \
+        echo 'wait ${childPid}'                                                                     >> /usr/local/bin/icewarpForever.sh ; \
+        echo 'trap - TERM'                                                                          >> /usr/local/bin/icewarpForever.sh ; \
+        echo 'wait ${childPid}'                                                                     >> /usr/local/bin/icewarpForever.sh ; \
         /bin/chmod 755 /usr/local/bin/icewarpForever.sh
 # IceWarp default folders :
 #    config                      : /opt/icewarp/config
