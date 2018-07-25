@@ -1,4 +1,4 @@
-# Darnis - IceWarp France <h1>
+# Darnis - IceWarp France
 [English version](#Summary)
 
 #### Présentation :<h3>
@@ -50,7 +50,7 @@ Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez 
     Si nécessaire, adaptez le Dockerfile puis
 `docker build . --tag icewarp:latest`
 
-### Summary <h3>
+### Summary
 [French version](#Présentation)
 
 To be written
