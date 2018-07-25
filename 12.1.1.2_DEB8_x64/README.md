@@ -38,11 +38,11 @@ Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez 
 `docker exec -it container0_icewarp bash`
 
 #### Arret et redemarrage de l'instance :<h4>
-`docker stop -t 120 container0_icewarp`
+`docker stop **-t 120** container0_icewarp`
 
       (laisser 120s ou plus pour arrêter correctement les services IceWarp)
 `docker restart container0_icewarp`
 
 #### Construction :<h4>
-    Si nécessaire, adaptez le Dockerfile
+    Si nécessaire, adaptez le Dockerfile puis
 `docker build . --tag icewarp:latest`
