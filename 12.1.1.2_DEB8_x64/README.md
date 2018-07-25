@@ -1,4 +1,4 @@
-# Darnis - IceWarp France
+# Serveur de Communication IceWarp
 [English version](#Summary)
 
 
@@ -10,12 +10,15 @@ Icewarp est un produit sous licence avec un excellent rapport qualité prix. Cet
 Bien sûr, le container que vous lancerez sera opérationnel en quelques minutes, vous pouvez l'utiliser pour monter un POC ou pour le tester mais, si vous souhaitez l'utiliser en production, en fonction de vos besoins, vous devrez penser :
 * à la redondance
 * au stockage
+* au remplacement de SQLite (utilisé par défaut, convient pour moins de 50 comptes)
 * aux sauvegardes
 * à la supervision
 
-Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez contactez Darnis - IceWarp France (info@icewarp.fr).
+Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon contactez Darnis - IceWarp France : info@icewarp.fr.
 
-#### Avant premier lancement :<h4>
+#### Avant le premier lancement :<h4>
+Configurez les dossiers qui contiendront les données persistentes.
+    
 `mkdir /data/config /data/mail /data/logs /data/temp /data/spam /data/calendar`
 
 `chmod a+rwx /data/config /data/mail /data/logs /data/temp`
@@ -51,9 +54,13 @@ Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez 
     Si nécessaire, adaptez le Dockerfile puis
 `docker build . --tag icewarp:latest`
 
-
+#### Pour davantage d'informations sur le serveur IceWarp :<h4>
+    Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à info@darnis.com ou info@icewarp.fr.
+    
 ### Overview
 
 [French version](#Présentation)
 
 To be written
+
+Darnis - IceWarp France
