@@ -13,6 +13,7 @@ Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez 
 
 #### Avant premier lancement :<h4>
 `mkdir /data/config /data/mail /data/logs /data/temp /data/spam /data/calendar`
+
 `chmod a+rwx /data/config /data/mail /data/logs /data/temp`
 
 #### Lancement en prenant les ports et adresses du host :<h4>
@@ -21,7 +22,9 @@ Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez 
 ##### variables :<h5>
     Ces variables peuvent être positionnées avec la commande run, sinon elles seront valorisées au premier démarrage.
 `-e PUBLICIP='x.x.x.x'`
+
 `-e LOCALIP='x.x.x.x'`
+
 `-e DNSSERVER='x.x.x.x'`
 
 #### configuration initiale :<h4>
@@ -36,6 +39,7 @@ Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon n'hésitez 
 
 #### Arret et redemarrage de l'instance :<h4>
 `docker stop -t 120 container0_icewarp`
+
       (laisser 120s ou plus pour arrêter correctement les services IceWarp)
 `docker restart container0_icewarp`
 
