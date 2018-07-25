@@ -29,7 +29,7 @@ RUN set -ex; \
         echo "TRACE9.1 $?" ;\
         /bin/sed -i 's/.*dpkg.*-i.*/& ; echo "DPKGSTATUS $?"/' /tmp/${file}/platform ;\
         echo "TRACE9.2 $?" ;\
-        /tmp/${file}/install.sh --AUTO --INSTALL-DIR /opt/icewarp --USER root ;\
+        /tmp/${file}/install.sh --AUTO --INSTALL-DIR /opt/icewarp --USER icewarp ;\
         echo "TRACE10 $?" ;\
         cd /opt/icewarp ;\
         echo "TRACE11 $?" ;\
@@ -111,7 +111,7 @@ RUN set -ex; \
 #    binaries                    : /opt/icewarp
 #    antispam db and definitions : /opt/icewarp/spam
 #    gw db and definitions       : /opt/icewarp/calendar
-### VOLUME ["/opt/icewarp/config", "/opt/icewarp/mail", "/opt/icewarp/logs", "/opt/icewarp/temp", "/opt/icewarp/spam", "/opt/icewarp/calendar"]
+VOLUME ["/opt/icewarp/config", "/opt/icewarp/mail", "/opt/icewarp/logs", "/opt/icewarp/temp", "/opt/icewarp/spam", "/opt/icewarp/calendar"]
 # IceWarp default ports
 #    SMTP                   : 25, 587, 465
 #    POP3                   : 110, 995
