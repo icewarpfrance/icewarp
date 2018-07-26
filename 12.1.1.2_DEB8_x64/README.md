@@ -1,5 +1,5 @@
 # Serveur de Communication IceWarp
-[To English version](###Overview)
+[To English version](#Overview)
 
 
 ### Présentation
@@ -65,8 +65,8 @@ Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à
     
 ### Overview
 
-[Vers la version française](###Présentation)
+[Vers la version française](#Présentation)
 
 To be written
 
-Darnis - IceWarp France
+**Darnis - IceWarp France**
