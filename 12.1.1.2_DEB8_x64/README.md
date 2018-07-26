@@ -30,6 +30,7 @@ Configurez les dossiers qui contiendront les données persistentes.
 
 ##### variables :
 Les variables PUBLICIP, LOCALIP et DNSSERVER peuvent être positionnées avec la commande run, sinon, un script essaiera de les valoriser au premier démarrage pour configurer IceWarp.
+
 `-e PUBLICIP='x.x.x.x'`
 
 `-e LOCALIP='x.x.x.x'`
@@ -57,7 +58,8 @@ Pour :
 `docker restart container0_icewarp`
 
 #### Construction :
-    Si nécessaire, adaptez le Dockerfile puis
+Si nécessaire, adaptez le Dockerfile puis
+
 `docker build . --tag icewarp:latest`
 
 #### Pour davantage d'informations sur le serveur IceWarp :
