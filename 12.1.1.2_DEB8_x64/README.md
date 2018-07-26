@@ -14,7 +14,7 @@ Bien sûr, le container que vous lancerez sera opérationnel en quelques minutes
 * aux sauvegardes
 * à la supervision
 
-Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon contactez Darnis - IceWarp France : info@icewarp.fr.
+Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon contactez nous : info@icewarp.fr.
 
 #### Avant le premier lancement :<h4>
 Configurez les dossiers qui contiendront les données persistentes.
@@ -59,7 +59,7 @@ Configurez les dossiers qui contiendront les données persistentes.
 `docker build . --tag icewarp:latest`
 
 #### Pour davantage d'informations sur le serveur IceWarp :<h4>
-    Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à info@darnis.com ou info@icewarp.fr.
+    Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à [info@darnis.com](info@darnis.com) ou info@icewarp.fr.
     
 ### Overview
 
