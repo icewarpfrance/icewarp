@@ -45,10 +45,13 @@ Configurez les dossiers qui contiendront les données persistentes.
 #### Entrer en bash dans le container :<h4>
 `docker exec -it container0_icewarp bash`
 
-#### Arret et redemarrage de l'instance :<h4>
+#### Arret de l'instance :<h4>
 `docker stop -t 120 container0_icewarp`
 
       (laisser 120s ou plus pour arrêter correctement les services IceWarp)
+ 
+#### Redémarrage de l'instance :<h4>
+    
 `docker restart container0_icewarp`
 
 #### Construction :<h4>
