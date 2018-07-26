@@ -29,7 +29,7 @@ Configurez les dossiers qui contiendront les données persistentes.
 `docker run --hostname hosticewarp0 -p 25:25/tcp -p 587:587/tcp -p 465:465/tcp -p 110:110/tcp -p 995:995/tcp -p 143:143/tcp -p 993:993/tcp -p 5222:5222/tcp -p 5223:5223/tcp -p 5269:5269/tcp -p 5060:5060/udp -p 5060:5060/tcp -p 5061:5061/udp -p 10000-10256:10000-10256/udp -p 80:80/tcp -p 443:443/tcp -p 1080:1080/tcp -p 5229:5229/tcp -v /data/config:/opt/icewarp/config -v /data/mail:/opt/icewarp/mail -v /data/logs:/opt/icewarp/logs -v /data/temp:/opt/icewarp/temp -v /data/spam:/opt/icewarp/spam -v /data/calendar:/opt/icewarp/calendar --name container0_icewarp -d icewarpfrance/icewarp:latest`
 
 ##### variables :
-    Les variables PUBLICIP, LOCALIP et DNSSERVER peuvent être positionnées avec la commande run, sinon, un script essaiera de les valoriser au premier démarrage pour configurer IceWarp.
+Les variables PUBLICIP, LOCALIP et DNSSERVER peuvent être positionnées avec la commande run, sinon, un script essaiera de les valoriser au premier démarrage pour configurer IceWarp.
 `-e PUBLICIP='x.x.x.x'`
 
 `-e LOCALIP='x.x.x.x'`
@@ -39,10 +39,10 @@ Configurez les dossiers qui contiendront les données persistentes.
 #### configuration initiale :
 `docker exec -it container0_icewarp /opt/icewarp/wizard.sh`
  
-       Pour :
-          - activer la licence (eventuellement d'evaluation)
-          - Creer un domaine
-          - Creer un compte d'administration
+Pour :
+- activer la licence (eventuellement d'evaluation)
+- Creer un domaine
+- Creer un compte d'administration
 
 #### Entrer en bash dans le container :
 `docker exec -it container0_icewarp bash`
@@ -50,7 +50,7 @@ Configurez les dossiers qui contiendront les données persistentes.
 #### Arrêt de l'instance :
 `docker stop -t 120 container0_icewarp`
 
-      (laisser 120s ou plus pour arrêter correctement les services IceWarp)
+(laisser 120s ou plus pour arrêter correctement les services IceWarp)
  
 #### Redémarrage de l'instance :
     
