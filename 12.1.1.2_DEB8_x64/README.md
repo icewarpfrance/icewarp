@@ -36,6 +36,7 @@ Configurez les dossiers qui contiendront les données persistentes.
 
 #### configuration initiale :<h4>
 `docker exec -it container0_icewarp /opt/icewarp/wizard.sh`
+ 
        Pour :
           - activer la licence (eventuellement d'evaluation)
           - Creer un domaine
