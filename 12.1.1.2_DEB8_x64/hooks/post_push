@@ -1,3 +1,4 @@
+#!/bin/bash
 set -e
 
 # Parse image name for repo name
