@@ -9,7 +9,7 @@ Cette image vous permet d'obtenir un serveur de communication (mail, chat, tél�
 
 Icewarp est un produit sous licence avec un excellent rapport qualité prix. Cette image vous permet d'activer gratuitement une licence d'évaluation pour 30 jours, pour 200 utilisateurs, disposant de toutes les fonctionnalités.
 
-Bien sûr, le container que vous lancerez sera opérationnel en quelques minutes, vous pouvez l'utiliser pour monter un POC ou pour le tester mais, si vous souhaitez l'utiliser en production, en fonction de vos besoins, vous devrez penser :
+Le container que vous lancerez sera opérationnel en quelques minutes, vous pouvez l'utiliser pour monter un POC ou pour le tester mais, si vous souhaitez l'utiliser en production, en fonction de vos besoins, vous devrez penser :
 * à la redondance
 * au stockage
 * au remplacement de SQLite (utilisé par défaut, SQLite convient pour moins de 50 comptes)
