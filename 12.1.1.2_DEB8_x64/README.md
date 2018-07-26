@@ -2,7 +2,7 @@
 [To English version](#p2)
 
 
-### Version française
+### Version francaise
 
 IceWarp est le meilleur serveur de communication présent sur le marché.
 Cette image vous permet d'obtenir un serveur de communication (mail, chat, téléphonie, conférence, partage de documents, ...) opérationnel en moins de cinq minutes.
@@ -71,7 +71,7 @@ A écrire.
 
 ### p2
 
-[Vers la version française](#Version-française)
+[Vers la version française](#Version-francaise)
 
 To be written.
 
