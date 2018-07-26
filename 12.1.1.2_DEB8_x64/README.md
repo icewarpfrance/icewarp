@@ -2,7 +2,7 @@
 [To English version](#Overview)
 
 
-### Présentation
+###Présentation
 
 IceWarp est le meilleur serveur de communication présent sur le marché.
 Cette image vous permet d'obtenir un serveur de communication (mail, chat, téléphonie, conférence, partage de documents, ...) opérationnel en moins de cinq minutes.
@@ -64,11 +64,15 @@ Si nécessaire, adaptez le Dockerfile puis
 
 #### Pour davantage d'informations sur le serveur IceWarp :
 Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à info@darnis.com ou info@icewarp.fr.
-    
-### Overview
+
+#### Exemple de création d'une machine docker dans le cloud OVH :
+
+A écrire.
+
+###Overview
 
 [Vers la version française](#Présentation)
 
-To be written
+To be written.
 
 **Darnis - IceWarp France**
