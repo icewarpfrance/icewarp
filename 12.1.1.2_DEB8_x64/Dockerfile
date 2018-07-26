@@ -31,6 +31,7 @@ ARG url="http://www.icewarp.fr/download/executables/linux"
 ARG site="fr"
 ARG file="IceWarpServer-12.1.1.2_DEB8_x64"
 ARG fileToDownload="${url}/${file}.${site}.tar.gz"
+COPY icewarpForever.sh /usr/local/bin
 RUN set -ex; \
         export DEBIAN_FRONTEND=noninteractive ; \
         /usr/bin/dpkg --add-architecture i386 ; \
@@ -43,11 +44,10 @@ RUN set -ex; \
         /bin/sed -i 's?>/dev/tty??' /tmp/${file}/platform ;\
         /tmp/${file}/install.sh --AUTO --INSTALL-DIR /opt/icewarp --USER icewarp ;\
         cd /opt/icewarp ;\
-        tar czf calendar.tgz calendar ;\
-        tar czf spam.tgz spam ;\
-        tar czf config.tgz config ;\
+        /bin/tar czf calendar.tgz calendar ;\
+        /bin/tar czf spam.tgz spam ;\
+        /bin/tar czf config.tgz config ;\
         /bin/chmod 755 /usr/local/bin/icewarpForever.sh
-COPY icewarpForever.sh /usr/local/bin
 # IceWarp persistent folders :
 #    config                      : /opt/icewarp/config
 #    mails                       : /opt/icewarp/mail
