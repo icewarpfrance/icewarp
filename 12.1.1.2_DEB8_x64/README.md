@@ -1,5 +1,5 @@
 # Serveur de Communication IceWarp
-[English version](#Overview)
+[To English version](#Overview)
 
 
 ### Présentation
@@ -59,7 +59,7 @@ Configurez les dossiers qui contiendront les données persistentes.
     
 ### Overview
 
-[French version](#Présentation)
+[Vers la version française](#Présentation)
 
 To be written
 
