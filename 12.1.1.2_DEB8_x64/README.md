@@ -71,7 +71,7 @@ A écrire.
 
 ### p2
 
-[Vers la version française](#Version française)
+[Vers la version française](#Version-française)
 
 To be written.
 
