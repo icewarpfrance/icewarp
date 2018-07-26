@@ -1,2 +1,2 @@
-# icewarp
+# IceWarp
 Darnis - IceWarp France
