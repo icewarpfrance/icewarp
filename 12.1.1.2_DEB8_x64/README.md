@@ -1,12 +1,14 @@
 # Serveur de Communication IceWarp
-[To English version](#Overview)
+[To English version](###Overview)
 
 
 ### Présentation
 
 IceWarp est le meilleur serveur de communication présent sur le marché.
 Cette image vous permet d'obtenir un serveur de communication (mail, chat, téléphonie, conférence, partage de documents, ...) opérationnel en moins de cinq minutes.
-Icewarp est un produit sous licence avec un excellent rapport qualité prix. Cette image vous permet d'activer une licence pour 30 jours pour 200 utilisateurs en disposant de toutes les fonctionnalités.
+
+Icewarp est un produit sous licence avec un excellent rapport qualité prix. Cette image vous permet d'activer gratuitement une licence d'évaluation pour 30 jours, pour 200 utilisateurs, disposant de toutes les fonctionnalités.
+
 Bien sûr, le container que vous lancerez sera opérationnel en quelques minutes, vous pouvez l'utiliser pour monter un POC ou pour le tester mais, si vous souhaitez l'utiliser en production, en fonction de vos besoins, vous devrez penser :
 * à la redondance
 * au stockage
@@ -63,7 +65,7 @@ Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à
     
 ### Overview
 
-[Vers la version française](#Présentation)
+[Vers la version française](###Présentation)
 
 To be written
 
