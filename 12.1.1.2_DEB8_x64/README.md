@@ -69,9 +69,9 @@ Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à
 
 A écrire.
 
-### French
+### Enflish
 
-[Vers la version française](#Français)
+[Vers la version française](#français)
 
 To be written.
 
