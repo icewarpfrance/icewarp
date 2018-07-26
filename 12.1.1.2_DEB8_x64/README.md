@@ -16,7 +16,7 @@ Le container que vous lancerez sera opérationnel en quelques minutes, vous pouv
 * aux sauvegardes
 * à la supervision
 
-Si vos ingénieurs sont disponibles, ce ne sera pas un soucis, sinon contactez nous : info@icewarp.fr.
+Si vos ingénieurs sont disponibles, ils sauront traiter ces points, sinon contactez nous : info@icewarp.fr.
 
 #### Avant le premier lancement :
 Configurez les dossiers qui contiendront les données persistentes.
