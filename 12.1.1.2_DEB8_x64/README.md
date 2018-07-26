@@ -1,8 +1,8 @@
 # Serveur de Communication IceWarp
-[To English version](#-Overview)
+[To English version](#p2)
 
 
-### Présentation
+### p1
 
 IceWarp est le meilleur serveur de communication présent sur le marché.
 Cette image vous permet d'obtenir un serveur de communication (mail, chat, téléphonie, conférence, partage de documents, ...) opérationnel en moins de cinq minutes.
@@ -69,9 +69,9 @@ Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à
 
 A écrire.
 
-### Overview
+### p2
 
-[Vers la version française](#-Présentation)
+[Vers la version française](#p1)
 
 To be written.
 
