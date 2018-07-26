@@ -59,7 +59,7 @@ Configurez les dossiers qui contiendront les données persistentes.
 `docker build . --tag icewarp:latest`
 
 #### Pour davantage d'informations sur le serveur IceWarp :<h4>
-    Consultez nos guides sur [http://www.icewarp.fr](http://www.icewarp.fr] ou contactez nous en écrivant à [mailto:info@darnis.com](mailto:info@darnis.com) ou [mailto:](mailto:info@icewarp.fr).
+Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à info@darnis.com ou info@icewarp.fr.
     
 ### Overview
 
