@@ -1,5 +1,5 @@
 # Serveur de Communication IceWarp
-[To English version](#p2)
+[To English version](#english)
 
 
 ### p1
@@ -69,7 +69,7 @@ Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à
 
 A écrire.
 
-### p2
+### English
 
 [Vers la version française](#p1)
 
