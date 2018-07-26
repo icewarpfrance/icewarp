@@ -12,7 +12,7 @@ Icewarp est un produit sous licence avec un excellent rapport qualité prix. Cet
 Bien sûr, le container que vous lancerez sera opérationnel en quelques minutes, vous pouvez l'utiliser pour monter un POC ou pour le tester mais, si vous souhaitez l'utiliser en production, en fonction de vos besoins, vous devrez penser :
 * à la redondance
 * au stockage
-* au remplacement de SQLite (utilisé par défaut, convient pour moins de 50 comptes)
+* au remplacement de SQLite (utilisé par défaut, SQLite convient pour moins de 50 comptes)
 * aux sauvegardes
 * à la supervision
 
