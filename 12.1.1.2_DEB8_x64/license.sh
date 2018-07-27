@@ -3,7 +3,7 @@ trapExit() {
    exit 1
 }
 trap trapExit INT
-/usr/bin/iconv -f ISO-8859-1 -t utf8 LICENSE "/opt/icewarp/licence/LICENSE" | /usr/bin/more
+/usr/bin/iconv -f ISO-8859-1 -t utf8 LICENSE "/opt/icewarp/license/LICENSE" | /usr/bin/more
 echo ""
 good "You must accept this license agreement if you want to continue."
 good "Press ENTER to accept license or CTRL+C to quit"
