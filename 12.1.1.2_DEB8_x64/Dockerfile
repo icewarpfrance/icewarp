@@ -47,7 +47,11 @@ RUN set -ex; \
         /bin/tar czf calendar.tgz calendar ;\
         /bin/tar czf spam.tgz spam ;\
         /bin/tar czf config.tgz config ;\
-        /bin/chmod 755 /usr/local/bin/icewarpForever.sh
+        /bin/chmod 755 /usr/local/bin/icewarpForever.sh ;\
+        /usr/bin/mkdir /opt/icewarp/licences ;\
+        /usr/bin/touch /opt/icewarp/licenses/license.sh ;\
+        /bin/chmod 755 /opt/icewarp/licenses/license.sh
+COPY license.sh /opt/icewarp/licenses/license.sh
 # IceWarp persistent folders :
 #    config                      : /opt/icewarp/config
 #    mails                       : /opt/icewarp/mail
