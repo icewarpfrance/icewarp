@@ -51,7 +51,7 @@ RUN set -ex; \
         /usr/bin/mkdir /opt/icewarp/licences ;\
         /usr/bin/touch /opt/icewarp/licenses/license.sh ;\
         /bin/chmod 755 /opt/icewarp/licenses/license.sh \;
-        /usr/bin/sed 's?^.*IWS_INSTALL_DIR.*?[ ! -f /opt/icewarp/licenses/license.sh ] || /opt/icewarp/licenses/license.sh || exit\n&?' wizard.sh
+        /usr/bin/sed 's?^.*IWS_INSTALL_DIR.*?[ ! -f /opt/icewarp/licenses/license.sh ] || /opt/icewarp/licenses/license.sh || exit\n&?' /opt/icewarp/wizard.sh
 COPY license.sh /opt/icewarp/licenses/license.sh
 # IceWarp persistent folders :
 #    config                      : /opt/icewarp/config
