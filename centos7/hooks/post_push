@@ -1,10 +1,19 @@
 #!/bin/bash
 set -e
-VERSION=12.0.2.1
 
+VERSION="12.1.1.2"
+
+# Parse image name for repo name
 tagStart=$(expr index "$IMAGE_NAME" :)
 repoName=${IMAGE_NAME:0:tagStart-1}
-for tag in {${VERSION},latest}; do
+
+if ! test -z "$(docker images -q ${repoName}:latest)"
+then
+   docker rmi ${repoName}:latest
+fi
+# Tag and push image for each additional tag
+for tag in {${VERSION},latest}
+do
     docker tag $IMAGE_NAME ${repoName}:${tag}
     docker push ${repoName}:${tag}
 done
