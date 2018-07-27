@@ -9,5 +9,6 @@ good "You must accept this license agreement if you want to continue."
 good "Press ENTER to accept license or CTRL+C to quit"
 echo ""
 read -s
-mv /opt/icewarp/license/accept.sh /opt/icewarp/license/accepted.sh
 trap INT
+mv /opt/icewarp/license/license.sh /opt/icewarp/license/licenseAccepted.sh
+exit 0
