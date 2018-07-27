@@ -49,7 +49,7 @@ RUN set -ex; \
         /bin/tar czf config.tgz config ;\
         /bin/chmod 755 /usr/local/bin/icewarpForever.sh ;\
         /usr/bin/mkdir /opt/icewarp/licences ;\
-        /usr/bin/sed 's?^.*IWS_INSTALL_DIR.*?[ ! -f /opt/icewarp/license/license.sh ] || /opt/icewarp/license/license.sh || exit\n&?' /opt/icewarp/wizard.sh
+        /usr/bin/sed -i -e 's?^.*IWS_INSTALL_DIR.*?[ ! -f /opt/icewarp/license/license.sh ] || /opt/icewarp/license/license.sh || exit\n&?' /opt/icewarp/wizard.sh
 COPY license.sh /opt/icewarp/licenses/license.sh
 RUN set -ex ;\
         /bin/chmod 755 /opt/icewarp/licenses/license.sh ;\
