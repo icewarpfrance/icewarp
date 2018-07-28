@@ -25,11 +25,11 @@
 #      (laisser 120s ou plus pour arrêter correctement les services IceWarp)
 #    docker restart container0_icewarp
 #
-FROM debian:jessie
+FROM debian:stretch
 MAINTAINER Darnis - IceWarp France
 ARG url="http://www.icewarp.fr/download/executables/linux"
 ARG site="fr"
-ARG file="IceWarpServer-12.1.1.2_DEB8_x64"
+ARG file="IceWarpServer-12.1.1.2_DEB9_x64"
 ARG fileToDownload="${url}/${file}.${site}.tar.gz"
 COPY icewarpForever.sh /usr/local/bin
 RUN set -ex; \
