@@ -53,7 +53,7 @@ RUN set -ex; \
 COPY license.sh /opt/icewarp/license/license.sh
 RUN set -ex ;\
         /bin/chmod 755 /opt/icewarp/license/license.sh ;\
-        /bin/cp /tmp/${file}/LICENSE* /opt/icewarp/license
+        /bin/cp /tmp/${file}/LICENSE* /opt/icewarp/license ;\
         /bin/chown -R icewarp:icewarp /opt/icewarp/license
 # IceWarp persistent folders :
 #    config                      : /opt/icewarp/config
