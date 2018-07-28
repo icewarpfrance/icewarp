@@ -1,9 +1,8 @@
 # Serveur de Communication IceWarp
 [To English version](#english)
 
-
 ### French
-
+### Présentation
 IceWarp est le meilleur serveur de communication présent sur le marché.
 Cette image vous permet d'obtenir un serveur de communication (mail, chat, téléphonie, conférence, partage de documents, ...) opérationnel en moins de cinq minutes.
 
@@ -67,12 +66,16 @@ Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à
 
 #### Exemple de création d'une machine docker dans le cloud OVH :
 
-A écrire.
+Vous pouvez monter un POC pour un coût raisonable :
+* en prenant une machine dans le cloud (exemple ) et l' construire avec l'OS de votre choix
+* configurer docker (vous trouverez les instructions sur https://docs.docker.com/install/linux/docker-ce/debian/)
+* récupérer une image sur https://hub.docker.com/u/icewarpfrance/, la lancer en suivant les instructions ci-dessus
+* après avoir accepté la licence d'évaluation, créé un domaine et un compte, vous pouvez ensuite vous connecter en https à l'adresse de la machine et tester l'envoi de mails (impossible vers l'extérieur si les enregistrements DNS n'ont pas été configurés pour le serveur), tester la téléphonie entre deux comptes de votre machine ou appeler "echo" pour vérifier le bon fonctionnement. 
 
 ### English
-
 [Vers la version française](#french)
 
+### Survey
 To be written.
 
 **Darnis - IceWarp France**
