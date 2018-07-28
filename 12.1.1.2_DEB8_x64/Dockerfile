@@ -48,7 +48,7 @@ RUN set -ex; \
         /bin/tar czf spam.tgz spam ;\
         /bin/tar czf config.tgz config ;\
         /bin/chmod 755 /usr/local/bin/icewarpForever.sh ;\
-        /bin/mkdir /opt/icewarp/licence ;\
+        /bin/mkdir /opt/icewarp/license ;\
         /bin/sed -i -e 's?^.*IWS_INSTALL_DIR.*?[ ! -f /opt/icewarp/license/license.sh ] || /opt/icewarp/license/license.sh || exit\n&?' /opt/icewarp/wizard.sh
 COPY license.sh /opt/icewarp/license/license.sh
 RUN set -ex ;\
