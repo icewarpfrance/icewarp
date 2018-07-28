@@ -50,10 +50,11 @@ RUN set -ex; \
         /bin/chmod 755 /usr/local/bin/icewarpForever.sh ;\
         /bin/mkdir /opt/icewarp/licences ;\
         /bin/sed -i -e 's?^.*IWS_INSTALL_DIR.*?[ ! -f /opt/icewarp/license/license.sh ] || /opt/icewarp/license/license.sh || exit\n&?' /opt/icewarp/wizard.sh
-COPY license.sh /opt/icewarp/licenses/license.sh
+COPY license.sh /opt/icewarp/license/license.sh
 RUN set -ex ;\
-        /bin/chmod 755 /opt/icewarp/licenses/license.sh ;\
-        /bin/chown -R icewarp:icewarp /opt/icewarp/licenses
+        /bin/chmod 755 /opt/icewarp/license/license.sh ;\
+        /bin/cp /tmp/${file}/LICENSE* /opt/icewarp/license
+        /bin/chown -R icewarp:icewarp /opt/icewarp/license
 # IceWarp persistent folders :
 #    config                      : /opt/icewarp/config
 #    mails                       : /opt/icewarp/mail
