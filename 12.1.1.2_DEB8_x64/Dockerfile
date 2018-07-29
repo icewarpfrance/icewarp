@@ -2,34 +2,34 @@
 # Example :
 #   docker build --build-arg VERSION=12.1.1.2 --build-arg URL=http://www.icewarp.fr/download/executables/linux --build-arg LANG=fr --build-arg OS=DEB9_x64 --build-arg FROMOS=debian --build-arg FROMOSVERSION=9 -t index.docker.io/icewarpfrance/icewarp:latest .
 #
+MAINTAINER Darnis - IceWarp France
 ARG URL
 ARG LANG
 ARG OS
 ARG VERSION
 ARG FROMOS
 ARG FROMOSVERSION
-FROM ${FROMOS}:${FROMOSVERSION}
-MAINTAINER Darnis - IceWarp France
 ARG file="IceWarpServer-${VERSION}_${OS}"
 ARG fileToDownload="${file}.${LANG}.tar.gz"
 ARG downloadURL="${URL}/${fileToDownload}"
 COPY icewarpForever.sh /usr/local/bin
-RUN if [ "${FROMOS}" = "centos" ] ;\
+FROM ${FROMOS}:${FROMOSVERSION}
+RUN set -ex; \
+        if [ "${FROMOS}" = "centos" ] ;\
         then\
            /usr/bin/yum update -y ; \
            /usr/bin/yum install -y wget ; \
            /usr/bin/wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm ;\
            /bin/rpm -ivh epel-release-latest-7.noarch.rpm ;\
            /usr/bin/yum install -y java-1.7.0-openjdk lame ;\
-        fi
-RUN if [ "${FROMOS}" = "centos" ] ;\
+        fi ;\        
+        if [ "${FROMOS}" = "centos" ] ;\
         then\
            export DEBIAN_FRONTEND=noninteractive ; \
            /usr/bin/dpkg --add-architecture i386 ; \
            /usr/bin/apt-get update -y; \
            /usr/bin/apt-get install wget apt-utils dialog apt-utils -y; \
-        fi
-RUN set -ex; \
+        fi ;\
         export DEBIAN_FRONTEND=noninteractive ; \
         /usr/sbin/groupadd -r icewarp && /usr/sbin/useradd -r -g icewarp icewarp ; \
         /usr/bin/wget -q -O /tmp/${fileToDownload} ${downloadURL} ; \
