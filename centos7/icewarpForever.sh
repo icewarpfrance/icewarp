@@ -35,6 +35,7 @@ then
    /opt/icewarp/tool.sh set system  c_system_services_sip_localaccesshost  $LOCALIP
    /opt/icewarp/tool.sh set system  c_system_services_sip_remoteaccesshost $PUBLICIP
    /opt/icewarp/tool.sh set system  c_mail_smtp_general_dnsserver          $DNSSERVER
+   /opt/icewarp/tool.sh set system  C_Meeting_Active                       1
 fi
 /opt/icewarp/icewarpd.sh --start
 trap stopIceWarpService TERM
