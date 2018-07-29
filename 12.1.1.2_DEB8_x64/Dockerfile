@@ -15,21 +15,10 @@ ARG downloadURL="${URL}/${fileToDownload}"
 COPY icewarpForever.sh /usr/local/bin
 FROM ${FROMOS}:${FROMOSVERSION}
 RUN set -ex; \
-        if [ "${FROMOS}" = "centos" ] ;\
-        then\
-           /usr/bin/yum update -y ; \
-           /usr/bin/yum install -y wget ; \
-           /usr/bin/wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm ;\
-           /bin/rpm -ivh epel-release-latest-7.noarch.rpm ;\
-           /usr/bin/yum install -y java-1.7.0-openjdk lame ;\
-        fi ;\        
-        if [ "${FROMOS}" = "debian" ] ;\
-        then\
-           export DEBIAN_FRONTEND=noninteractive ; \
-           /usr/bin/dpkg --add-architecture i386 ; \
-           /usr/bin/apt-get update -y; \
-           /usr/bin/apt-get install wget apt-utils dialog apt-utils -y; \
-        fi ;\
+        export DEBIAN_FRONTEND=noninteractive ; \
+        /usr/bin/dpkg --add-architecture i386 ; \
+        /usr/bin/apt-get update -y; \
+        /usr/bin/apt-get install wget apt-utils dialog apt-utils -y; \
         /usr/sbin/groupadd -r icewarp && /usr/sbin/useradd -r -g icewarp icewarp ; \
         /usr/bin/wget -q -O /tmp/${fileToDownload} ${downloadURL} ; \
         /bin/tar xzf /tmp/${fileToDownload} -C /tmp; \
