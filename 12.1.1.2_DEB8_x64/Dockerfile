@@ -15,10 +15,13 @@ ARG downloadURL="${URL}/${fileToDownload}"
 FROM ${FROMOS}:${FROMOSVERSION}
 COPY icewarpForever.sh /usr/local/bin
 RUN set -ex; \
-        export DEBIAN_FRONTEND=noninteractive ; \
-        /usr/bin/dpkg --add-architecture i386 ; \
-        /usr/bin/apt-get update -y; \
-        /usr/bin/apt-get install wget apt-utils dialog apt-utils -y; \
+        if [ "${FROMOS}" = "debian" ] ;\
+        then\
+           export DEBIAN_FRONTEND=noninteractive ; \
+           /usr/bin/dpkg --add-architecture i386 ; \
+           /usr/bin/apt-get update -y; \
+           /usr/bin/apt-get install wget apt-utils dialog apt-utils -y; \
+        fi ;\
         /usr/sbin/groupadd -r icewarp && /usr/sbin/useradd -r -g icewarp icewarp ; \
         /usr/bin/wget -q -O /tmp/${fileToDownload} ${downloadURL} ; \
         /bin/tar xzf /tmp/${fileToDownload} -C /tmp; \
