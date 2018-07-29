@@ -52,12 +52,14 @@ RUN set -ex; \
         /bin/tar czf config.tgz config ;\
         /bin/chmod 755 /usr/local/bin/icewarpForever.sh ;\
         /bin/mkdir /opt/icewarp/license ;\
-        /bin/sed -i -e 's?^.*IWS_INSTALL_DIR.*?[ ! -f /opt/icewarp/license/license.sh ] || /opt/icewarp/license/license.sh || exit\n&?' /opt/icewarp/wizard.sh
+        /bin/sed -i -e 's?^.*IWS_INSTALL_DIR.*?[ ! -f /opt/icewarp/license/license.sh ] || /opt/icewarp/license/license.sh || exit\n&?' /opt/icewarp/wizard.sh ;\
+        /bin/rm -rf /tmp/${fileToDownload}
 COPY license.sh /opt/icewarp/license/license.sh
 RUN set -ex ;\
         /bin/chmod 755 /opt/icewarp/license/license.sh ;\
         /bin/cp /tmp/${file}/LICENSE* /opt/icewarp/license ;\
-        /bin/chown -R icewarp:icewarp /opt/icewarp/license
+        /bin/chown -R icewarp:icewarp /opt/icewarp/license ;\
+        /bin/rm -rf /tmp/${file}
 # IceWarp persistent folders :
 #    config                      : /opt/icewarp/config
 #    mails                       : /opt/icewarp/mail
