@@ -2,7 +2,7 @@
 set -e
 stopIceWarpService()
 {
-   /usr/sbin/service icewarp stop
+   /opt/icewarp/icewarpd.sh --stop
    exitStatus=$?
    /bin/kill -TERM "${childPid}" 2>/dev/null
    exit $exitStatus
@@ -26,7 +26,7 @@ then
    fi
    if test -z "$LOCALIP"
    then
-      LOCALIP=`ip -o -4 a s eth0 | awk '{sub(/\/.*/, "", $4);print $4}'`
+      LOCALIP=$(hostname -I)
    fi
    if test -z "$DNSSERVER"
    then
@@ -35,8 +35,9 @@ then
    /opt/icewarp/tool.sh set system  c_system_services_sip_localaccesshost  $LOCALIP
    /opt/icewarp/tool.sh set system  c_system_services_sip_remoteaccesshost $PUBLICIP
    /opt/icewarp/tool.sh set system  c_mail_smtp_general_dnsserver          $DNSSERVER
+   /opt/icewarp/tool.sh set system  C_Meeting_Active                       1
 fi
-/usr/sbin/service icewarp start
+/opt/icewarp/icewarpd.sh --start
 trap stopIceWarpService TERM
 /bin/sleep infinity &
 childPid=$!
