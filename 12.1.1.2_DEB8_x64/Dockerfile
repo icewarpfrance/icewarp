@@ -1,7 +1,7 @@
 # vim:set ft=dockerfile:
 #
 # Construction :
-#    docker build /root/icewarp --tag icewarp:latest
+#    docker build /root/icewarp --build-arg VERSION=12.1.1.2 --tag icewarp:latest
 #
 # Avant premier lancement :
 #    mkdir /data/config /data/mail /data/logs /data/temp /data/spam /data/calendar
@@ -30,6 +30,7 @@ MAINTAINER Darnis - IceWarp France
 ARG url="http://www.icewarp.fr/download/executables/linux"
 ARG site="fr"
 ARG OS="DEB9_x64"
+ARG VERSION
 ARG file="IceWarpServer-${VERSION}_${OS}"
 ARG fileToDownload="${url}/${file}.${site}.tar.gz"
 COPY icewarpForever.sh /usr/local/bin
