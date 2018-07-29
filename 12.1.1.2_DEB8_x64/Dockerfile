@@ -1,45 +1,38 @@
 # vim:set ft=dockerfile:
+# Example :
+#   docker build --build-arg VERSION=12.1.1.2 --build-arg URL=http://www.icewarp.fr/download/executables/linux --build-arg LANG=fr --build-arg OS=DEB9_x64 --build-arg FROMOS=debian --build-arg FROMOSVERSION=9 -t index.docker.io/icewarpfrance/icewarp:latest .
 #
-# Construction :
-#    docker build /root/icewarp --build-arg VERSION=12.1.1.2 --tag icewarp:latest
-#
-# Avant premier lancement :
-#    mkdir /data/config /data/mail /data/logs /data/temp /data/spam /data/calendar
-#    chmod a+rwx /data/config /data/mail /data/logs /data/temp
-#
-# Lancement en prenant les ports et adresses du host :
-#    docker run --hostname hosticewarp0 -p 25:25/tcp -p 587:587/tcp -p 465:465/tcp -p 110:110/tcp -p 995:995/tcp -p 143:143/tcp -p 993:993/tcp -p 5222:5222/tcp -p 5223:5223/tcp -p 5269:5269/tcp -p 5060:5060/udp -p 5060:5060/tcp -p 5061:5061/udp -p 10000-10256:10000-10256/udp -p 80:80/tcp -p 443:443/tcp -p 1080:1080/tcp -p 5229:5229/tcp -v /data/config:/opt/icewarp/config -v /data/mail:/opt/icewarp/mail -v /data/logs:/opt/icewarp/logs -v /data/temp:/opt/icewarp/temp -v /data/spam:/opt/icewarp/spam -v /data/calendar:/opt/icewarp/calendar --name container0_icewarp -d icewarpfrance/icewarp:latest
-#
-# configuration initiale
-#    docker exec -it container0_icewarp /opt/icewarp/wizard.sh
-#       Pour :
-#          - activer la licence (eventuellement d'evaluation)
-#          - Creer un domaine
-#          - Creer un compte d'administration
-#
-# Entrer en bash dans le container :
-#    docker exec -it container0_icewarp bash
-#
-# Arret et redemarrage de l'instance :
-#    docker stop -t 120 container0_icewarp
-#      (laisser 120s ou plus pour arrêter correctement les services IceWarp)
-#    docker restart container0_icewarp
-#
-FROM debian:stretch
-MAINTAINER Darnis - IceWarp France
 ARG URL
 ARG LANG
 ARG OS
 ARG VERSION
+ARG FROMOS
+ARG FROMOSVERSION
+FROM ${FROMOS}:${FROMOSVERSION}
+MAINTAINER Darnis - IceWarp France
 ARG file="IceWarpServer-${VERSION}_${OS}"
 ARG fileToDownload="${file}.${LANG}.tar.gz"
 ARG downloadURL="${URL}/${fileToDownload}"
 COPY icewarpForever.sh /usr/local/bin
 RUN set -ex; \
-        export DEBIAN_FRONTEND=noninteractive ; \
-        /usr/bin/dpkg --add-architecture i386 ; \
-        /usr/bin/apt-get update -y; \
-        /usr/bin/apt-get install wget apt-utils dialog apt-utils -y; \
+        case "${FROMOS}" in \
+           centos) \
+              /usr/bin/yum update -y ; \
+              /usr/bin/yum install -y wget ; \
+              /usr/bin/wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm ;\
+              /bin/rpm -ivh epel-release-latest-7.noarch.rpm ;\
+              /usr/bin/yum install -y java-1.7.0-openjdk lame ;\
+              ;; \
+           debian) \
+              export DEBIAN_FRONTEND=noninteractive ; \
+              /usr/bin/dpkg --add-architecture i386 ; \
+              /usr/bin/apt-get update -y; \
+              /usr/bin/apt-get install wget apt-utils dialog apt-utils -y; \
+              ;; \
+           *) \
+              echo "${FROMOS} not supported" ; \
+              exit 1 ; \
+        esac ; \
         /usr/sbin/groupadd -r icewarp && /usr/sbin/useradd -r -g icewarp icewarp ; \
         /usr/bin/wget -q -O /tmp/${fileToDownload} ${downloadURL} ; \
         /bin/tar xzf /tmp/${fileToDownload} -C /tmp; \
