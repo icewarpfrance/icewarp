@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+# get VERSION from env file
+. ./hooks/env
+
+if test -z "$VERSION"
+then
+   VERSION="NA"
+fi
+
+# Parse image name for repo name
+tagStart=$(expr index "$IMAGE_NAME" :)
+repoName=${IMAGE_NAME:0:tagStart-1}
+
+# Tag latest exists
+if ! test -z "$(docker images -q ${repoName}:latest)"
+then
+   docker rmi ${repoName}:latest
+fi
+
+# Tag and push image for each additional tag
+for tag in {${VERSION},latest}
+do
+    docker tag $IMAGE_NAME ${repoName}:${tag}
+    docker push ${repoName}:${tag}
+done
