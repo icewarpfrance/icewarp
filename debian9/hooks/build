@@ -1,0 +1,10 @@
+#!/bin/bash -xe
+. ./hooks/env
+docker build \
+	--build-arg "VERSION=$VERSION"             \
+	--build-arg "URL=$URL"                     \
+	--build-arg "LANG=$LANG"                   \
+	--build-arg "OS=$OS"                       \
+	--build-arg "FROMOS=$FROMOS"               \
+        --build-arg "FROMOSVERSION=$FROMOSVERSION" \
+	-t $IMAGE_NAME .
