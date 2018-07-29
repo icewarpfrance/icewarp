@@ -32,7 +32,8 @@ ARG LANG
 ARG OS
 ARG VERSION
 ARG file="IceWarpServer-${VERSION}_${OS}"
-ARG fileToDownload="${URL}/${file}.${LANG}.tar.gz"
+ARG fileToDownload="${file}.${LANG}.tar.gz"
+ARG downloadURL="${URL}/${fileToDownload}"
 COPY icewarpForever.sh /usr/local/bin
 RUN set -ex; \
         export DEBIAN_FRONTEND=noninteractive ; \
@@ -40,8 +41,8 @@ RUN set -ex; \
         /usr/bin/apt-get update -y; \
         /usr/bin/apt-get install wget apt-utils dialog apt-utils -y; \
         /usr/sbin/groupadd -r icewarp && /usr/sbin/useradd -r -g icewarp icewarp ; \
-        /usr/bin/wget -q -O /tmp/${file}.${site}.tar.gz ${fileToDownload} ; \
-        /bin/tar xzf /tmp/${file}.${site}.tar.gz -C /tmp; \
+        /usr/bin/wget -q -O /tmp/${fileToDownload} ${downloadURL} ; \
+        /bin/tar xzf /tmp/${fileToDownload} -C /tmp; \
         /bin/cp /tmp/${file}/platform /tmp/${file}/platform.original ;\
         /bin/sed -i 's?>/dev/tty??' /tmp/${file}/platform ;\
         /tmp/${file}/install.sh --AUTO --INSTALL-DIR /opt/icewarp --USER icewarp ;\
