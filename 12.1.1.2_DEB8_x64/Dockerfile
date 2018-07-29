@@ -2,9 +2,9 @@
 # Example :
 #   docker build --build-arg VERSION=12.1.1.2 --build-arg URL=http://www.icewarp.fr/download/executables/linux --build-arg LANG=fr --build-arg OS=DEB9_x64 --build-arg FROMOS=debian --build-arg FROMOSVERSION=9 -t index.docker.io/icewarpfrance/icewarp:latest .
 #
-FROM ${FROMOS}:${FROMOSVERSION}
 ARG FROMOS
 ARG FROMOSVERSION
+FROM ${FROMOS}:${FROMOSVERSION}
 ARG URL
 ARG LANG
 ARG OS
