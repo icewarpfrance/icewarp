@@ -27,12 +27,12 @@
 #
 FROM debian:stretch
 MAINTAINER Darnis - IceWarp France
-ARG url="http://www.icewarp.fr/download/executables/linux"
-ARG site="fr"
-ARG OS="DEB9_x64"
+ARG URL
+ARG LANG
+ARG OS
 ARG VERSION
 ARG file="IceWarpServer-${VERSION}_${OS}"
-ARG fileToDownload="${url}/${file}.${site}.tar.gz"
+ARG fileToDownload="${URL}/${file}.${LANG}.tar.gz"
 COPY icewarpForever.sh /usr/local/bin
 RUN set -ex; \
         export DEBIAN_FRONTEND=noninteractive ; \
