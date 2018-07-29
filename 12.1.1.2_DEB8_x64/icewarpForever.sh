@@ -2,7 +2,7 @@
 set -e
 stopIceWarpService()
 {
-   /usr/sbin/service icewarp stop
+   /opt/icewarp/icewarpd.sh --stop
    exitStatus=$?
    /bin/kill -TERM "${childPid}" 2>/dev/null
    exit $exitStatus
@@ -16,17 +16,17 @@ then
    /bin/chown icewarp:icewarp /opt/icewarp/spam
    /bin/chown icewarp:icewarp /opt/icewarp/calendar
    cd /opt/icewarp
-   tar xzf calendar.tgz calendar/
-   tar xzf spam.tgz     spam/
-   tar xzf config.tgz   config/
-   rm calendar.tgz spam.tgz config.tgz
+   /bin/tar xzf calendar.tgz calendar/
+   /bin/tar xzf spam.tgz     spam/
+   /bin/tar xzf config.tgz   config/
+   /bin/rm calendar.tgz spam.tgz config.tgz
    if test -z "$PUBLICIP"
    then
       PUBLICIP=`wget http://ipecho.net/plain -O - -q`
    fi
    if test -z "$LOCALIP"
    then
-      LOCALIP=`ip -o -4 a s eth0 | awk '{sub(/\/.*/, "", $4);print $4}'`
+      LOCALIP=$(hostname -I)
    fi
    if test -z "$DNSSERVER"
    then
@@ -37,9 +37,9 @@ then
    /opt/icewarp/tool.sh set system  c_mail_smtp_general_dnsserver          $DNSSERVER
    /opt/icewarp/tool.sh set system  C_Meeting_Active                       1
 fi
-/usr/sbin/service icewarp start
+/opt/icewarp/icewarpd.sh --start
 trap stopIceWarpService TERM
-sleep infinity &
+/bin/sleep infinity &
 childPid=$!
 wait ${childPid}
 trap - TERM
