@@ -29,7 +29,8 @@ FROM debian:stretch
 MAINTAINER Darnis - IceWarp France
 ARG url="http://www.icewarp.fr/download/executables/linux"
 ARG site="fr"
-ARG file="IceWarpServer-12.1.1.2_DEB9_x64"
+ARG OS="DEB9_x64"
+ARG file="IceWarpServer-${VERSION}_${OS}"
 ARG fileToDownload="${url}/${file}.${site}.tar.gz"
 COPY icewarpForever.sh /usr/local/bin
 RUN set -ex; \
