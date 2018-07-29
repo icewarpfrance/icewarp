@@ -8,13 +8,21 @@ ARG OS
 ARG VERSION
 ARG FROMOS
 ARG FROMOSVERSION
+FROM ${FROMOS}:${FROMOSVERSION}
+MAINTAINER Darnis - IceWarp France
 ARG file="IceWarpServer-${VERSION}_${OS}"
 ARG fileToDownload="${file}.${LANG}.tar.gz"
 ARG downloadURL="${URL}/${fileToDownload}"
-FROM ${FROMOS}:${FROMOSVERSION}
-MAINTAINER Darnis - IceWarp France
 COPY icewarpForever.sh /usr/local/bin
 RUN set -ex; \
+echo ${URL} ;\
+echo ${LANG} ;\
+echo ${OS} ;\
+echo ${VERSION} ;\
+echo ${FROMOS} ;\
+echo ${file} ;\
+echo ${fileToDownload} ;\
+echo ${downloadURL} ;\
         export DEBIAN_FRONTEND=noninteractive ; \
         /usr/bin/dpkg --add-architecture i386 ; \
         /usr/bin/apt-get update -y; \
