@@ -1,0 +1,8 @@
+### These values are used to find the file to download and the version to build :
+###    fileToDownload="${URL}/IceWarpServer-${VERSION}_${OS}.${LANG}.tar.gz"
+VERSION="12.1.1.2"
+URL="http://www.icewarp.fr/download/executables/linux"
+LANG="fr"
+OS="RHEL7_x64"
+FROMOS="centos"
+FROMOSVERSION="7"
