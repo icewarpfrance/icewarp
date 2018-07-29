@@ -1,0 +1,8 @@
+### These values are used to find the file to download and the version to build :
+###    fileToDownload="${URL}/IceWarpServer-${VERSION}_${OS}.${LANG}.tar.gz"
+VERSION="12.1.1.2"
+URL="http://www.icewarp.fr/download/executables/linux"
+LANG="fr"
+OS="DEB9_x64"
+FROMOS="debian"
+FROMOSVERSION="9"
