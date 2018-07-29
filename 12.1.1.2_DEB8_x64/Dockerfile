@@ -2,23 +2,34 @@
 # Example :
 #   docker build --build-arg VERSION=12.1.1.2 --build-arg URL=http://www.icewarp.fr/download/executables/linux --build-arg LANG=fr --build-arg OS=DEB9_x64 --build-arg FROMOS=debian --build-arg FROMOSVERSION=9 -t index.docker.io/icewarpfrance/icewarp:latest .
 #
+FROM debian:9
+MAINTAINER Darnis - IceWarp France
 ARG URL
 ARG LANG
 ARG OS
 ARG VERSION
 ARG FROMOS
 ARG FROMOSVERSION
-FROM ${FROMOS}:${FROMOSVERSION}
-MAINTAINER Darnis - IceWarp France
 ARG file="IceWarpServer-${VERSION}_${OS}"
 ARG fileToDownload="${file}.${LANG}.tar.gz"
 ARG downloadURL="${URL}/${fileToDownload}"
 COPY icewarpForever.sh /usr/local/bin
 RUN set -ex; \
-        export DEBIAN_FRONTEND=noninteractive ; \
-        /usr/bin/dpkg --add-architecture i386 ; \
-        /usr/bin/apt-get update -y; \
-        /usr/bin/apt-get install wget apt-utils dialog apt-utils -y; \
+        if [ "${FROMOS}" = "centos" ] ;\
+        then\
+           /usr/bin/yum update -y ; \
+           /usr/bin/yum install -y wget ; \
+           /usr/bin/wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm ;\
+           /bin/rpm -ivh epel-release-latest-7.noarch.rpm ;\
+           /usr/bin/yum install -y java-1.7.0-openjdk lame ;\
+        fi ;\        
+        if [ "${FROMOS}" = "debian" ] ;\
+        then\
+           export DEBIAN_FRONTEND=noninteractive ; \
+           /usr/bin/dpkg --add-architecture i386 ; \
+           /usr/bin/apt-get update -y; \
+           /usr/bin/apt-get install wget apt-utils dialog apt-utils -y; \
+        fi ;\
         /usr/sbin/groupadd -r icewarp && /usr/sbin/useradd -r -g icewarp icewarp ; \
         /usr/bin/wget -q -O /tmp/${fileToDownload} ${downloadURL} ; \
         /bin/tar xzf /tmp/${fileToDownload} -C /tmp; \
@@ -58,5 +69,5 @@ VOLUME ["/opt/icewarp/config", "/opt/icewarp/mail", "/opt/icewarp/logs", "/opt/i
 #    SOCKS                  : 1080
 #    GroupWare              : 5229
 EXPOSE 25/tcp 587/tcp 465/tcp 110/tcp 995/tcp 143/tcp 993/tcp 5222/tcp 5223/tcp 5269/tcp 5060/udp 5060/tcp 5061/udp 10000-10256/udp 80/tcp 443/tcp 1080/tcp 5229/tcp
-CMD ["icewarpForever.sh"] 143/tcp 993/tcp 5222/tcp 5223/tcp 5269/tcp 5060/udp 5060/tcp 5061/udp 10000-10256/udp 80/tcp 443/tcp 1080/tcp 5229/tcp
 CMD ["icewarpForever.sh"]
+© 2018 GitHub, Inc.
