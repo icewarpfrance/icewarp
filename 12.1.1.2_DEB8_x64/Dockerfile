@@ -12,8 +12,8 @@ ARG FROMOSVERSION
 ARG file="IceWarpServer-${VERSION}_${OS}"
 ARG fileToDownload="${file}.${LANG}.tar.gz"
 ARG downloadURL="${URL}/${fileToDownload}"
-COPY icewarpForever.sh /usr/local/bin
 FROM ${FROMOS}:${FROMOSVERSION}
+COPY icewarpForever.sh /usr/local/bin
 RUN set -ex; \
         export DEBIAN_FRONTEND=noninteractive ; \
         /usr/bin/dpkg --add-architecture i386 ; \
