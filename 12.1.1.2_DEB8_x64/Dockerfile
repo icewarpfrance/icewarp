@@ -25,7 +25,7 @@ RUN set -ex; \
            /bin/rpm -ivh epel-release-latest-7.noarch.rpm ;\
            /usr/bin/yum install -y java-1.7.0-openjdk lame ;\
         fi ;\        
-        if [ "${FROMOS}" = "debian" ] ;\
+        if [ "${FROMOS}" = "debian" -o "${FROMOS}" = "ubuntu" ] ;\
         then\
            export DEBIAN_FRONTEND=noninteractive ; \
            /usr/bin/dpkg --add-architecture i386 ; \
@@ -44,6 +44,10 @@ RUN set -ex; \
         /bin/tar czf config.tgz config ;\
         /bin/chmod 755 /usr/local/bin/icewarpForever.sh ;\
         /bin/mkdir /opt/icewarp/license ;\
+        if [ "${FROMOS}" = "ubuntu" ] ;\
+        then\
+           bin/sed -i -e 's?^.*Automatic installation mode - wrong hostname configuration.*?&\nreturn 0?' /opt/icewarp/wizard.sh ;\
+        fi ;\
         /bin/sed -i -e 's?^.*IWS_INSTALL_DIR.*?[ ! -f /opt/icewarp/license/license.sh ] || /opt/icewarp/license/license.sh || exit\n&?' /opt/icewarp/wizard.sh ;\
         /bin/rm /tmp/${fileToDownload}
 COPY license.sh /opt/icewarp/license/license.sh
