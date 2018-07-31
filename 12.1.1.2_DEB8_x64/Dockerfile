@@ -37,6 +37,11 @@ RUN set -ex; \
         /bin/tar xzf /tmp/${fileToDownload} -C /tmp; \
         /bin/cp /tmp/${file}/platform /tmp/${file}/platform.original ;\
         /bin/sed -i 's?>/dev/tty??' /tmp/${file}/platform ;\
+        if [ "${FROMOS}" = "ubuntu" ] ;\
+        then\
+           /bin/cp /tmp/${file}/install.sh /tmp/${file}/install.sh.original ;\
+           bin/sed -i -e 's?^.*Automatic installation mode - wrong hostname configuration.*?&\nreturn 0?' /tmp/${file}/install.sh ;\
+        fi ;\
         /tmp/${file}/install.sh --AUTO --INSTALL-DIR /opt/icewarp --USER icewarp ;\
         cd /opt/icewarp ;\
         /bin/tar czf calendar.tgz calendar ;\
@@ -44,10 +49,6 @@ RUN set -ex; \
         /bin/tar czf config.tgz config ;\
         /bin/chmod 755 /usr/local/bin/icewarpForever.sh ;\
         /bin/mkdir /opt/icewarp/license ;\
-        if [ "${FROMOS}" = "ubuntu" ] ;\
-        then\
-           bin/sed -i -e 's?^.*Automatic installation mode - wrong hostname configuration.*?&\nreturn 0?' /opt/icewarp/wizard.sh ;\
-        fi ;\
         /bin/sed -i -e 's?^.*IWS_INSTALL_DIR.*?[ ! -f /opt/icewarp/license/license.sh ] || /opt/icewarp/license/license.sh || exit\n&?' /opt/icewarp/wizard.sh ;\
         /bin/rm /tmp/${fileToDownload}
 COPY license.sh /opt/icewarp/license/license.sh
