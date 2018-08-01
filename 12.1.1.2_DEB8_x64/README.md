@@ -147,7 +147,4 @@ To prepare a POC at a reasonable cost :
 * pickup an image on https://hub.docker.com/u/icewarpfrance/, and run it as per the instructions above
 * after having accepted the evaluation license, created a domain and an account, you can connect to WebClient and WebAdmin by using the URLs https://<server-name-or-IP> and https://<server-name-or-IP>/admin/ resp. You have immediate access to email, calendaring, sharing, Voice over IP (make a call to the 'echo' service to verify that the WebPhone is working).
 
-### Survey
-To be written.
-
 **Darnis - IceWarp France**
