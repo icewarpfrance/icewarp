@@ -125,7 +125,7 @@ This command will allow you to :
 #### To stop the container :
 `docker stop -t 120 container0_icewarp`
 
-(laisser 120s ou plus pour arrêter correctement les services IceWarp)
+(Please wait at least for 120 seconds to allow all IceWarp processes to exit gracefully.)
  
 #### To restart the container :
     
