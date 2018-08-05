@@ -148,4 +148,3 @@ To prepare a POC at a reasonable cost :
 * after having accepted the evaluation license, created a domain and an account, you can connect to WebClient and WebAdmin by using the URLs https://<server-name-or-IP> and https://<server-name-or-IP>/admin/ resp. You have immediate access to email, calendaring, sharing, Voice over IP (make a call to the 'echo' service to verify that the WebPhone is working).
 
 **Darnis - IceWarp France**
-
