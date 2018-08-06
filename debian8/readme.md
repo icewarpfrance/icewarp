@@ -67,7 +67,7 @@ Consultez nos guides sur http://www.icewarp.fr ou contactez nous en écrivant à
 #### Exemple de création d'une machine docker dans le cloud OVH :
 
 Vous pouvez monter un POC pour un coût raisonable :
-* en prenant une machine dans le cloud (exemple https://www.ovh.com/fr/public-cloud/instances/tarifs/) et l' construire avec l'OS de votre choix
+* en prenant une machine dans le cloud (exemple ) et l' construire avec l'OS de votre choix
 * configurer docker (vous trouverez les instructions sur https://docs.docker.com/install/linux/docker-ce/debian/)
 * récupérer une image sur https://hub.docker.com/u/icewarpfrance/, la lancer en suivant les instructions ci-dessus
 * après avoir accepté la licence d'évaluation, créé un domaine et un compte, vous pouvez ensuite vous connecter en https à l'adresse de la machine et tester l'envoi de mails (impossible vers l'extérieur si les enregistrements DNS n'ont pas été configurés pour le serveur), tester la téléphonie entre deux comptes de votre machine ou appeler "echo" pour vérifier le bon fonctionnement. 
@@ -125,7 +125,7 @@ This command will allow you to :
 #### To stop the container :
 `docker stop -t 120 container0_icewarp`
 
-(laisser 120s ou plus pour arrêter correctement les services IceWarp)
+(Give a value of 120 or more to the parameter '-t' to allow all IceWarp processes to exit gracefully.)
  
 #### To restart the container :
     
@@ -142,7 +142,7 @@ Consult the documentation available on http://www.icewarp.fr or contact us by em
 #### How to easily create a docker machine in the OVH cloud  :
 
 To prepare a POC at a reasonable cost :
-* register a machine in the cloud and install the host with the OS of your choice (https://www.ovh.com/fr/public-cloud/instances/tarifs/)
+* register a machine in the cloud and install the host with the OS of your choice
 * configure docker (you will find the instructions here : https://docs.docker.com/install/linux/docker-ce/debian/)
 * pickup an image on https://hub.docker.com/u/icewarpfrance/, and run it as per the instructions above
 * after having accepted the evaluation license, created a domain and an account, you can connect to WebClient and WebAdmin by using the URLs https://<server-name-or-IP> and https://<server-name-or-IP>/admin/ resp. You have immediate access to email, calendaring, sharing, Voice over IP (make a call to the 'echo' service to verify that the WebPhone is working).
