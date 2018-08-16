@@ -1,6 +1,6 @@
 ### These values are used to find the file to download and the version to build :
 ###    fileToDownload="${URL}/IceWarpServer-${VERSION}_${OS}.${LANG}.tar.gz"
-VERSION="12.1.1.2"
+VERSION="12.1.1.3"
 URL="http://www.icewarp.fr/download/executables/linux"
 LANG="fr"
 OS="UBUNTU16_x64"
