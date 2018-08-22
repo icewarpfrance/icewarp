@@ -3,6 +3,6 @@
 VERSION="12.1.1.3"
 URL="http://www.icewarp.fr/download/executables/linux"
 LANG="fr"
-OS="UBUNTU16_x64"
+OS="UBUNTU1604_x64"
 FROMOS="ubuntu"
 FROMOSVERSION="16.04"
